@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     "twitter",
     "accounts",
 
+    "tweets",
+
+
 ]
 
 MIDDLEWARE = [
