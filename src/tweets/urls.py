@@ -2,7 +2,7 @@ from django.urls import path
 from.api import tweets
 
 urlpatterns = [
-    path("tweets/", tweets),
+     path("", tweets),
 ]
 
 # 这段代码把 /tweets/ 这个 URL 请求，映射到 tweets 这个 API 函数上，
