@@ -8,7 +8,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/health/", health),
     path("api/accounts/", include("accounts.urls")),
+    path("api/tweets/", include("tweets.urls")),
     path("api/token/refresh/", TokenRefreshView.as_view()),
-
+    
 ]
 
