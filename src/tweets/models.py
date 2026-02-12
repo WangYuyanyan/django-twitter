@@ -8,7 +8,7 @@ class Tweet(models.Model):
         settings.AUTH_USER_MODEL, 
         on_delete = models.SET_NULL, 
         null=True, 
-        related_name='tweets'
+        related_name='tweets',
     )
     content = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add=True)
