@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view 
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Tweet
-from .serializers import TweetCreateSerializer, TweetSerializer
+from tweets.models import Tweet
+from tweets.api.serializers import TweetCreateSerializer, TweetSerializer
 
 # 成功响应的统一出口
 def ok(data=None, message="OK", status_code=200):

@@ -1,7 +1,7 @@
 
 from django.conf import settings
 from django.db import models
-from django.utils import timezone
+from utils.time_helpers import utc_now
 
 class Tweet(models.Model):
     user = models.ForeignKey(
@@ -13,10 +13,15 @@ class Tweet(models.Model):
     content = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        index_together = (('user', 'created_at'),)
+        ordering = ('user', '-created_at')
+
     @property
     def hours_to_now(self):
-        delta = timezone.now() - self.created_at
-        return int(delta.total_seconds() / 3600)
+        # datetime.now 不带时区信息，需要增加上 utc 的时区信息
+        return (utc_now() - self.created_at).seconds // 3600
     
     def __str__(self):
+        # 这里是执行 print(tweet instance) 的时候会显示的内容
         return f"{self.created_at} {self.user}: {self.content}"
