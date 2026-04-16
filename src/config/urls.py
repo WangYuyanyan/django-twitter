@@ -9,6 +9,7 @@ urlpatterns = [
     path("api/health/", health),
     path("api/accounts/", include("accounts.urls")),
     path("api/tweets/", include("tweets.urls")),
+    path("api/friendships/", include("friendships.urls")),
     path("api/token/refresh/", TokenRefreshView.as_view()),
     
 ]
